@@ -77,21 +77,22 @@ void buildHuffmanTree(string text)
 {
 	// Считаем частоту каждого символа и сохраняем в контейнер map
 	unordered_map<char, int> freq;
-	for (char ch : text) {
+	for (char ch : text)
 		freq[ch]++;
-	}
 
 	int t_sum = 0;
-	for (auto i : freq) {
-		cout << i.first << " " << i.second << endl;
+	for (auto i : freq)
+	{
+		cout << i.first << " " << i.second << " ";
 		t_sum += i.second;
 	}
-	cout << t_sum;
+	cout << endl << t_sum << endl;
 	// Создаем приоритетную очередь для хранения активных узлов дерева
 	priority_queue<Node*, vector<Node*>, comp> pq;
 
 	// Создаем листовой узел для каждого символа и добавляем в приоритетную очередь
-	for (auto pair : freq) {
+	for (auto pair : freq)
+	{
 		pq.push(getNode(pair.first, pair.second, nullptr, nullptr));
 	}
 
@@ -121,7 +122,7 @@ void buildHuffmanTree(string text)
 	cout << "Huffman Codes are :\n" << '\n';
 	for (auto pair : huffmanCode)
 	{
-		cout << pair.first << " " << pair.second << '\n';
+		cout << pair.first << " " << pair.second << " ";
 	}
 
 	cout << "\nDecoded string was :\n" << text << '\n';
